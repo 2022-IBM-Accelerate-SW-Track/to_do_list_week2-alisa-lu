@@ -19,7 +19,12 @@ class Home extends Component {
     // To avoid having dup values, we use the Math.random() function to generate a random value for a todo id.
     // This solution works for a small application but a more complex hashing function should be used when
     // dealing with a larger data sensitive project.
-    if (this.state.todos.find(t => t === todo)) {
+    let new_list = []
+    for (let i = 0; i < this.state.todos.length; i++)
+    {
+      new_list.push(this.state.todos[i].content)
+    }
+    if (new_list.find(t => t === todo.content)) {
       return;
     } else {
       todo.id = Math.random();
